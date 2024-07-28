@@ -1,0 +1,14 @@
+#KUBECTL
+$ kubectl get all
+$ kubectl get deployments
+$ kubectl get pods
+$ kubectl get svc
+$ kubectl describe svc nome_de_um_service
+$ kubectl get nodes -o yaml | grep address
+
+#KIND
+vim ~/.kube/config
+$ kind get clusters
+
+#DOCKER
+$ docker container ls
