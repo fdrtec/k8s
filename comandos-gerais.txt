@@ -2,13 +2,27 @@
 $ kubectl get all
 $ kubectl get deployments
 $ kubectl get pods
+$ kubectl get po -o wide
 $ kubectl get svc
 $ kubectl describe svc nome_de_um_service
 $ kubectl get nodes -o yaml | grep address
+$ kubectl get nodes
+$ kubectl config get-contexts
+$ kubectl config use-context nome_cluster
+$ kubectl get ingress
+$ kubectl describe ingress nome_do_ingress
 
-#KIND
+#KIND (https://kind.sigs.k8s.io/)
+ls /usr/local/bin/kind
 vim ~/.kube/config
 $ kind get clusters
+$ kind delete cluster
+$ kind create cluster --name repair-tips-cluster-k8s --config kind-config.yaml
+$ kubectl apply -f https://kind.sigs.k8s.io/examples/ingress/usage.yaml
+$ kubectl get all -n ingress-nginx
+$ echo "source <(kind completion bash)" >> ~/.bashrc
+
 
 #DOCKER
 $ docker container ls
+$ kind load docker-image nome_imagem_criada:v1

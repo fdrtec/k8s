@@ -1,0 +1,12 @@
+fonte : https://isaacfkessler.medium.com/como-criar-um-cluster-kubernetes-com-nginx-ingress-controller-localmente-utilizando-o-kind-fc24d56f78d2
+1. criar o yaml do cluster
+2. executar: kind create cluster --name repair-tips-cluster --config ./repair-tips-cluster.yaml
+3. ver info do cluster criado : kubectl cluster-info --context kind-repair-tips-cluster
+4. implemente o nginx: kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+5. confirme o nginx esta funcionanddo: kubectl wait --namespace ingress-nginx \
+  --for=condition=ready pod \
+  --selector=app.kubernetes.io/component=controller \
+  --timeout=90s
+6.criar manifesto.yaml para testar o ingress
+7.kubectl apply -f ./manifesto.yaml
+8.curl localhost/foo/hostname

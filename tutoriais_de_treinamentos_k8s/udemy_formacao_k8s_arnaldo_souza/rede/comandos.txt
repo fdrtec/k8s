@@ -1,0 +1,20 @@
+Comandos do modulo sobre rede no k8s
+
+# Criar um namespace isolado para o estudo de redes
+$ kubectl create namespace estudo-rede --save-config
+
+# Jogar o pod dentro do namespace criado
+$ kubectl apply redis-pod.yaml --namespace=estudo-rede
+
+# verificar os pod dentro o namespace criado 
+$ kubectl get pods --namespace=estudo-rede
+$ kubectl get pods -n estudo-rede
+
+# configurar o namespace criado com o padrão
+$ kubectl config set-context --current --namespace=estudo-rede
+
+# criacao de pod de forma interativa
+$ kubectl run redis-pod --image=redis:alpine --namespace=estudo-rede
+
+# delecao de namespace 
+$ kubectl delete namespace estudo-rede
